@@ -1,323 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Abhishek Singh – Portfolio</title>
-  <meta name="description" content="Abhishek Singh – Full Stack Engineer transitioning into Data Engineering. Node.js, React, Azure, Databricks, PySpark." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#0b0c10;--panel:#111318;--text:#e6e7ea;--muted:#a7acb8;--primary:#6ee7b7;--accent:#8ab4f8;--chip:#1a1f2b;--border:#242836;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
+    :root {
+      --bg:#f9fbff; --panel:#fff; --text:#1a1f36;
+      --muted:#5b6785; --primary:#1e40af; --accent:#3b82f6;
+      --chip:#f0f4ff; --border:#e2e8f0;
+      --shadow:0 6px 24px rgba(0,0,0,.08);
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;background:linear-gradient(180deg,var(--bg),#0f1320 70%);color:var(--text)}
-    a{color:inherit}
-    .container{max-width:1080px;margin:0 auto;padding:0 20px}
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
-    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
-    .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 20px var(--primary)}
-    .menu{display:flex;gap:18px}
-    .menu a{font-size:14px;color:var(--muted);text-decoration:none}
-    .menu a:hover{color:var(--text)}
-    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#0a0f16;padding:10px 14px;border-radius:14px;font-weight:600;text-decoration:none}
-    .btn.outline{background:transparent;color:var(--text);border:1px solid var(--border)}
-    .hero{padding:60px 0 16px}
-    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
-    .title{font-size:36px;font-weight:800;line-height:1.1;margin:0}
-    .subtitle{color:var(--muted);margin:14px 0 0}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-    .chip{background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .card{background:var(--panel);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
-    .card .card-body{padding:18px}
-    .profile{display:grid;grid-template-columns:100px 1fr;gap:14px;align-items:center}
-    .avatar{width:96px;height:96px;border-radius:16px;object-fit:cover;border:1px solid var(--border);background:#0a0d14}
-    .avatar.placeholder{display:grid;place-items:center;font-size:11px;color:var(--muted)}
-    .row{display:grid;gap:20px}
-    section{padding:28px 0}
-    h2{margin:0 0 12px;font-size:22px}
-    p{margin:0 0 12px}
-    ul{margin:0;padding-left:18px}
-    .list{display:grid;gap:14px}
-    .pill{display:inline-block;margin:6px 6px 0 0;padding:8px 12px;border-radius:999px;background:var(--chip);border:1px solid var(--border);font-size:13px}
-    .projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .project h3{margin:0 0 8px;font-size:18px}
-    .project small{color:var(--muted)}
-    .project .tech{margin-top:8px}
-    .kicker{color:var(--muted);font-size:13px}
-    .footer{padding:30px 0 50px;color:var(--muted);text-align:center}
-    .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .contact-cards a{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--border);padding:12px;border-radius:14px;text-decoration:none;color:var(--text)}
-    .note{font-size:12px;color:var(--muted);margin-top:10px}
-    .toggle{cursor:pointer;padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px}
-    @media (max-width: 860px){
-      .grid{grid-template-columns:1fr}
-      .projects{grid-template-columns:1fr}
-      .contact-cards{grid-template-columns:1fr}
-      .title{font-size:30px}
+    body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);scroll-behavior:smooth;}
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:1100px;margin:auto;padding:0 20px;}
+
+    /* NAV */
+    .nav{position:sticky;top:0;background:rgba(255,255,255,.95);border-bottom:1px solid var(--border);backdrop-filter:blur(6px);z-index:50;}
+    .nav-wrap{display:flex;justify-content:space-between;align-items:center;height:64px;}
+    .brand{display:flex;align-items:center;font-weight:700;}
+    .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);margin-right:8px;}
+    .menu{display:flex;gap:20px;}
+    .menu a{color:var(--muted);font-size:14px;}
+    .menu a:hover{color:var(--primary);}
+    .btn{padding:10px 16px;border-radius:12px;font-weight:600;transition:.3s;background:var(--primary);color:#fff;}
+    .btn:hover{background:var(--accent);}
+
+    /* HERO */
+    header.hero{padding:80px 0;}
+    .grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center;}
+    .title{font-size:42px;font-weight:800;}
+    .subtitle{color:var(--muted);}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0;}
+    .chip{background:var(--chip);padding:6px 12px;border-radius:999px;border:1px solid var(--border);}
+
+    section{padding:50px 0;}
+    h2{margin-bottom:20px;font-size:26px;}
+
+    /* Skills */
+    .skills-icons{display:flex;flex-wrap:wrap;gap:14px;}
+    .skill-item{display:flex;align-items:center;gap:10px;background:var(--chip);border:1px solid var(--border);padding:10px 14px;border-radius:12px;transition:.3s;}
+    .skill-item i{color:var(--primary);}
+    .skill-item:hover{background:var(--primary);color:#fff;}
+    .skill-item:hover i{color:#fff;}
+
+    /* TIMELINE WITH CURRENT MARKER */
+    .timeline{position:relative;margin:40px 0;}
+    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--primary);}
+    .timeline-item{position:relative;width:50%;padding:20px;box-sizing:border-box;opacity:0;transition:all .8s ease;}
+    .timeline-item .content{background:var(--panel);padding:16px;border-radius:14px;box-shadow:var(--shadow);}
+    .timeline-item .date{font-size:13px;font-weight:600;color:var(--primary);margin-bottom:6px;}
+    .timeline-item::before{content:"";position:absolute;top:30px;width:16px;height:16px;background:var(--primary);border-radius:50%;box-shadow:0 0 0 4px rgba(30,64,175,.2);}
+    .timeline-item.left{left:0;text-align:right;padding-right:40px;transform:translateX(-60px);}
+    .timeline-item.left::before{right:-9px;}
+    .timeline-item.right{left:50%;padding-left:40px;transform:translateX(60px);}
+    .timeline-item.right::before{left:-9px;}
+    .timeline-item.visible{opacity:1;transform:translateX(0);}
+    .timeline-item h3{margin:0 0 6px;font-size:18px;}
+    .timeline-item p{margin:5px 0;color:var(--muted);}
+    .pill{display:inline-block;background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:12px;margin:2px;}
+
+    /* Highlight current marker */
+    .timeline-item.current::before {
+      background: var(--accent);
+      box-shadow:0 0 0 6px rgba(59,130,246,0.5), 0 0 15px var(--accent);
+      animation: glow 1.5s infinite alternate;
     }
-    /* Light mode */
-    body.light{--bg:#f6f7fb;--panel:#ffffff;--text:#0f1222;--muted:#556070;--primary:#0ea5e9;--accent:#0f766e;--chip:#f3f5f9;--border:#e6e8ef}
+    @keyframes glow {
+      from {transform:scale(1);}
+      to {transform:scale(1.3);}
+    }
+
+    /* CONTACT */
+    .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .contact-cards a{padding:14px;border-radius:14px;background:var(--panel);display:flex;align-items:center;gap:10px;border:1px solid var(--border);}
+    .contact-cards a i{color:var(--primary);}
+    .contact-cards a:hover{border-color:var(--primary);color:var(--primary)}
+    .footer{padding:40px;text-align:center;color:var(--muted);}
+
+    /* Back-to-Top */
+    #toTop{position:fixed;bottom:24px;right:24px;background:var(--primary);color:#fff;border:none;border-radius:50%;padding:14px;cursor:pointer;opacity:0;pointer-events:none;transition:.3s;}
+    #toTop.visible{opacity:1;pointer-events:auto;animation:pulse 1.5s infinite;}
+    @keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.15);}100%{transform:scale(1);}}
+
+    .fade-section{opacity:0;transform:translateY(30px);transition:.8s;}
+    .fade-section.visible{opacity:1;transform:translateY(0);}
+    @media(max-width:860px){
+      .grid{grid-template-columns:1fr;}
+      .timeline::before{left:8px;}
+      .timeline-item{width:100%;padding-left:40px!important;text-align:left;}
+      .timeline-item.left,.timeline-item.right{left:0;}
+      .timeline-item.left::before,.timeline-item.right::before{left:-9px;}
+    }
   </style>
 </head>
 <body>
+  <!-- NAV -->
   <nav class="nav">
     <div class="container nav-wrap">
       <div class="brand"><span class="brand-dot"></span>Abhishek Singh</div>
       <div class="menu">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certs">Certifications</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#skills">Skills</a>
+        <a href="#projects">Projects</a><a href="#certs">Certifications</a><a href="#contact">Contact</a>
       </div>
-      <div style="display:flex; gap:10px; align-items:center">
-        <a class="btn" href="#projects">View Projects</a>
-        <button class="toggle" id="themeToggle">Toggle theme</button>
-      </div>
+      <a class="btn" href="#projects">View Projects</a>
     </div>
   </nav>
 
-  <header class="hero">
+  <!-- HERO -->
+  <header class="hero fade-section">
     <div class="container grid">
       <div>
         <h1 class="title">Full Stack Engineer → Data Engineering</h1>
-        <p class="subtitle">7+ years building scalable web and data solutions with <b>Node.js, React, Azure, Databricks, and PySpark</b>. I bridge application development and data engineering to deliver reliable ETL, APIs, and cloud‑native systems.</p>
-        <div class="chips">
-          <span class="chip">Node.js & React</span>
-          <span class="chip">Databricks & PySpark</span>
-          <span class="chip">Azure Cloud</span>
-        </div>
-        <div style="display:flex; gap:10px; margin-top:18px">
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn outline" href="Abhishek_Singh_Resume.pdf" download>Download Resume</a>
-        </div>
+        <p class="subtitle">7+ years delivering scalable solutions with <b>Node.js, React, Azure, Databricks, PySpark</b>.</p>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">Databricks</span><span class="chip">Azure</span></div>
       </div>
       <div>
-        <div class="card">
-          <div class="card-body">
-            <div class="profile">
-              <!-- Replace src with your image path (e.g., images/profile.jpg). Recommended 400x400px square. -->
-              <img class="avatar" id="avatar" src="1754487776199.jpeg" alt="Your profile photo" 
-onerror="this.classList.add('placeholder');this.alt='Add your profile image at 1754487776199.jpeg';this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'#0a0d14\'/><text x=\'50%\' y=\'50%\' fill=\'#8892a6\' font-size=\'12\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Add 1754487776199.jpeg</text></svg>')" />
-              <div>
-                <h3 style="margin:0">Abhishek Singh</h3>
-                <div class="kicker">India • Open to Full Stack & Data Engineering roles</div>
-                <div style="display:grid;gap:6px;margin-top:10px;color:var(--muted);font-size:14px">
-                  <div>📧 <a href="mailto:kb.abhisheksingh@gmail.com">kb.abhisheksingh@gmail.com</a></div>
-                  <div>🔗 <a href="https://www.linkedin.com/in/abhishek-singh-122703a1/" target="_blank">LinkedIn</a> • <a href="https://github.com/yourhandle" target="_blank">GitHub</a></div>
-                  <div>🌐 abhisheksingh.in (set after domain purchase)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="card"><div class="card-body profile">
+          <img class="avatar" src="1754487776199.jpeg" onerror="this.src='https://via.placeholder.com/100?text=Profile'"/>
+          <div><h3>Abhishek Singh</h3><div class="kicker">India • Open to Data Eng Roles</div></div>
+        </div></div>
       </div>
     </div>
   </header>
 
-  <main>
-    <section id="about">
-      <div class="container row">
-        <div class="card"><div class="card-body">
-          <h2>About</h2>
-          <p>I design and deliver scalable applications and data platforms using <b>Node.js, React, Azure, Databricks, and PySpark</b>. My focus is building reliable ETL pipelines, clean APIs, and cloud‑native solutions that turn complex requirements into measurable business impact. Currently doubling down on <b>data engineering</b> while leveraging a solid full‑stack foundation.</p>
-        </div></div>
-      </div>
-    </section>
+  <!-- ABOUT -->
+  <section id="about" class="fade-section">
+    <div class="container"><div class="card"><div class="card-body">
+      <h2>About</h2>
+      <p>I design scalable applications & data platforms leveraging <b>Node.js, React, Azure, Databricks & PySpark</b>. Specialized in ETL pipelines, APIs and cloud-native systems.</p>
+    </div></div></div>
+  </section>
 
-    <section id="skills">
-      <div class="container row">
-        <div class="card"><div class="card-body">
-          <h2>Skills</h2>
-          <div>
-            <span class="pill">Node.js</span>
-            <span class="pill">Express.js</span>
-            <span class="pill">React.js</span>
-            <span class="pill">JavaScript</span>
-            <span class="pill">TypeScript</span>
-            <span class="pill">SQL Server</span>
-            <span class="pill">PostgreSQL</span>
-            <span class="pill">Cassandra</span>
-            <span class="pill">Azure</span>
-            <span class="pill">Databricks</span>
-            <span class="pill">PySpark</span>
-            <span class="pill">API Design</span>
-            <span class="pill">ETL / Data Pipelines</span>
-            <span class="pill">CI/CD (Azure Pipelines, Bamboo)</span>
-            <span class="pill">Angular</span>
-            <span class="pill">jQuery</span>
+  <!-- SKILLS -->
+  <section id="skills" class="fade-section">
+    <div class="container"><div class="card"><div class="card-body">
+      <h2>Skills</h2>
+      <div class="skills-icons">
+        <div class="skill-item"><i class="fa-brands fa-node-js"></i> Node.js</div>
+        <div class="skill-item"><i class="fa-brands fa-react"></i> React</div>
+        <div class="skill-item"><i class="fa-solid fa-database"></i> Databases</div>
+        <div class="skill-item"><i class="fa-brands fa-microsoft"></i> Azure</div>
+        <div class="skill-item"><i class="fa-solid fa-code"></i> TypeScript</div>
+        <div class="skill-item"><i class="fa-brands fa-python"></i> PySpark</div>
+      </div>
+    </div></div></div>
+  </section>
+
+  <!-- CAREER TIMELINE -->
+  <section id="projects" class="fade-section">
+    <div class="container"><div class="card"><div class="card-body">
+      <h2>Career Journey</h2>
+      <div class="timeline">
+        <!-- CURRENT ROLE Highlighted -->
+        <div class="timeline-item left current">
+          <div class="content">
+            <div class="date">2023–Present</div>
+            <h3>Foot Locker – E‑commerce</h3>
+            <p>Building ETL pipelines, APIs, inventory systems across 28 countries.</p>
+            <span class="pill">Node.js</span><span class="pill">Databricks</span>
           </div>
-        </div></div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="projects">
-          <!-- 1 -->
-          <div class="card project"><div class="card-body">
-            <h3>Foot Locker – E‑commerce Platform</h3>
-            <p class="kicker">Global retailer (28 countries) powering browsing, purchasing & inventory across multiple divisions.</p>
-            <ul class="list">
-              <li>Led application support for product attributes, inventory, SKU establishment & RFID store ops</li>
-              <li>Automated pipelines with <b>PySpark</b> & <b>Azure Databricks</b></li>
-              <li>Backend services with <b>Node.js</b>, <b>SQL Server</b>, <b>Cassandra</b>; SLA compliance & CI/CD</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">SQL Server</span><span class="pill">Cassandra</span><span class="pill">PySpark</span><span class="pill">Azure</span><span class="pill">Databricks</span><span class="pill">Bamboo</span>
-            </div>
-          </div></div>
-          <!-- 2 -->
-          <div class="card project"><div class="card-body">
-            <h3>Rotation Accelerator – Internal Project Rotation</h3>
-            <p class="kicker">Rules‑based dashboard to streamline employee project changes and approvals.</p>
-            <ul class="list">
-              <li>Requirements, design, coding, reporting</li>
-              <li>Angular dashboard + Node.js APIs for rotation workflows</li>
-              <li>Implemented validation for rules/guidelines and secure approvals</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">API Integration</span>
-            </div>
-          </div></div>
-          <!-- 3 -->
-          <div class="card project"><div class="card-body">
-            <h3>E‑Sign – Digital Document Signing</h3>
-            <p class="kicker">Scalable eSignature platform with multi‑recipient signing, pre‑fillable forms & notifications.</p>
-            <ul class="list">
-              <li>Node.js/Express document workflows; secure handling</li>
-              <li>Multi‑recipient flows + event notifications</li>
-              <li>Angular signing UI</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">Angular</span><span class="pill">API Integration</span>
-            </div>
-          </div></div>
-          <!-- 4 -->
-          <div class="card project"><div class="card-body">
-            <h3>Evolve – Mortgage Industry Platform</h3>
-            <p class="kicker">Distributed, containerized modules with dynamic runtime workflows via task queues.</p>
-            <ul class="list">
-              <li>Designed, coded, tested distributed modules in Node.js</li>
-              <li>Angular UI for workflow management</li>
-              <li>Integrated distributed task queue; container‑optimized</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">Containers</span><span class="pill">Workflow Engine</span>
-            </div>
-          </div></div>
-          <!-- 5 -->
-          <div class="card project"><div class="card-body">
-            <h3>Frontier Software – iChris (HRIS)</h3>
-            <p class="kicker">Modular HR platform with secure access across on‑prem, cloud, and mobile.</p>
-            <ul class="list">
-              <li>Requirements → design → coding → testing → reporting</li>
-              <li>Modules in Node.js, AngularJS, TypeScript; API integrations</li>
-              <li>Automated tests (Protractor, Mocha, Chai, Cucumber); IIS & C#.NET integrations</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">AngularJS</span><span class="pill">TypeScript</span><span class="pill">LESS</span><span class="pill">Protractor</span><span class="pill">Mocha</span><span class="pill">Chai</span><span class="pill">Cucumber</span><span class="pill">IIS</span><span class="pill">C#.NET</span>
-            </div>
-          </div></div>
-          <!-- 6 -->
-          <div class="card project"><div class="card-body">
-            <h3>Migo TV – Offline Video Content</h3>
-            <p class="kicker">Offline video distribution in low‑connectivity regions; connects backend, shopkeepers & users.</p>
-            <ul class="list">
-              <li>Node.js/Express services; Angular UI</li>
-              <li>Sequelize models & PostgreSQL schema</li>
-              <li>3rd‑party API integrations for shopkeeper ↔ end‑user flows</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">Angular</span><span class="pill">SequelizeJS</span><span class="pill">PostgreSQL</span>
-            </div>
-          </div></div>
-          <!-- 7 -->
-          <div class="card project"><div class="card-body">
-            <h3>Property Pro – Real Estate Valuation</h3>
-            <p class="kicker">Valuations compliant with Residential Valuation & Security Assessment Pro Forma.</p>
-            <ul class="list">
-              <li>Node.js + Angular + TypeScript modules</li>
-              <li>API integrations for valuation data & reporting</li>
-              <li>Dynamic UI with jQuery</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">jQuery</span><span class="pill">API Integration</span>
-            </div>
-          </div></div>
-          <!-- 8 -->
-          <div class="card project"><div class="card-body">
-            <h3>Invenco – Warehouse & OMS</h3>
-            <p class="kicker">Ingests orders via 3rd‑party APIs, processes in OMS (incl. mobile), pushes realtime updates.</p>
-            <ul class="list">
-              <li>Node.js + TypeScript services; Angular front‑end</li>
-              <li>3rd‑party e‑commerce API sync</li>
-              <li>Realtime status updates to merchants & customers</li>
-            </ul>
-            <div class="tech">
-              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">API Integration</span>
-            </div>
-          </div></div>
+        </div>
+        <div class="timeline-item right">
+          <div class="content">
+            <div class="date">2021–2023</div>
+            <h3>E‑Sign – Digital Signing</h3>
+            <p>Scalable signing workflows with Angular UI.</p>
+            <span class="pill">Angular</span><span class="pill">Express</span>
+          </div>
+        </div>
+        <div class="timeline-item left">
+          <div class="content">
+            <div class="date">2019–2021</div>
+            <h3>Migo TV – Offline Content</h3>
+            <p>Delivered offline video platform for low internet; APIs & Postgres.</p>
+            <span class="pill">Express</span><span class="pill">Postgres</span>
+          </div>
+        </div>
+        <div class="timeline-item right">
+          <div class="content">
+            <div class="date">2017–2019</div>
+            <h3>Invenco – OMS</h3>
+            <p>Order ingestion, ecommerce sync & real-time updates.</p>
+            <span class="pill">Node.js</span><span class="pill">TypeScript</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div></div></div>
+  </section>
 
-    <section id="certs">
-      <div class="container row">
-        <div class="card"><div class="card-body">
-          <h2>Certifications</h2>
-          <ul class="list">
-            <li>Microsoft Azure Fundamentals (AZ‑900)</li>
-            <li>Azure Data Engineer Associate (DP‑203)</li>
-            <li>Databricks Lakehouse Fundamentals</li>
-            <li>Databricks Certified Data Engineer Associate</li>
-            <li>Apache Spark Fundamentals</li>
-            <li>Advanced SQL (Coursera/HackerRank)</li>
-          </ul>
-        </div></div>
+  <!-- CERTIFICATIONS TIMELINE -->
+  <section id="certs" class="fade-section">
+    <div class="container"><div class="card"><div class="card-body">
+      <h2>Certifications</h2>
+      <div class="timeline">
+        <div class="timeline-item left"><div class="content"><div class="date">2024</div><h3><i class="fa-brands fa-microsoft"></i> Azure Fundamentals (AZ‑900)</h3></div></div>
+        <div class="timeline-item right"><div class="content"><div class="date">2024</div><h3><i class="fa-brands fa-microsoft"></i> Azure Data Engineer (DP‑203)</h3></div></div>
+        <div class="timeline-item left"><div class="content"><div class="date">2023</div><h3><i class="fa-brands fa-database"></i> Databricks Lakehouse Fundamentals</h3></div></div>
+        <div class="timeline-item right"><div class="content"><div class="date">2023</div><h3><i class="fa-brands fa-database"></i> Databricks DE Associate</h3></div></div>
+        <div class="timeline-item left"><div class="content"><div class="date">2022</div><h3><i class="fa-solid fa-fire"></i> Apache Spark Fundamentals</h3></div></div>
       </div>
-    </section>
+    </div></div></div>
+  </section>
 
-    <section id="contact">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="contact-cards">
-          <a href="mailto:kb.abhisheksingh@gmail.com">📧 Email <span style="opacity:.7">(kb.abhisheksingh@gmail.com)</span></a>
-          <a href="https://www.linkedin.com/in/abhishek-singh-122703a1/" target="_blank">🔗 LinkedIn Profile</a>
-          <a href="https://github.com/yourhandle" target="_blank">💻 GitHub</a>
-        </div>
-        <div class="note">Replace placeholders (email, GitHub, resume file, domain) before publishing.</div>
+  <!-- CONTACT -->
+  <section id="contact" class="fade-section">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-cards">
+        <a href="mailto:kb.abhisheksingh@gmail.com"><i class="fa-solid fa-envelope"></i>Email</a>
+        <a href="https://linkedin.com/in/abhishek-singh-122703a1"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+        <a href="https://github.com/yourhandle"><i class="fa-brands fa-github"></i>GitHub</a>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">© <span id="year"></span> Abhishek Singh • Built with HTML, CSS & a sprinkle of JS</footer>
+  <footer class="footer">© <span id="year"></span> Abhishek Singh • Portfolio</footer>
+  <button id="toTop"><i class="fa-solid fa-arrow-up"></i></button>
 
   <script>
-if (location.protocol !== 'https:') {
-  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-}
-</script>
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Theme toggle
-    const btn = document.getElementById('themeToggle');
-    const pref = localStorage.getItem('theme');
-    if(pref==='light'){ document.body.classList.add('light'); }
-    btn.addEventListener('click',()=>{
-      document.body.classList.toggle('light');
-      localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
-    });
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    // Animate fade + timeline
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+        }
+      });
+    },{threshold:.2});
+    document.querySelectorAll('.fade-section, .timeline-item').forEach(s=>observer.observe(s));
+
+    // Back to top
+    const toTop=document.getElementById('toTop');
+    window.addEventListener('scroll',()=>{window.scrollY>250?toTop.classList.add('visible'):toTop.classList.remove('visible');});
+    toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   </script>
 </body>
 </html>
-
-
