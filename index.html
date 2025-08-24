@@ -300,6 +300,11 @@
   <footer class="footer">© <span id="year"></span> Abhishek Singh • Built with HTML, CSS & a sprinkle of JS</footer>
 
   <script>
+if (location.protocol !== 'https:') {
+  location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+}
+</script>
+  <script>
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
     // Theme toggle
@@ -313,3 +318,4 @@
   </script>
 </body>
 </html>
+
