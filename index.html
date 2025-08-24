@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abhishek Singh – Portfolio</title>
+  <meta name="description" content="Abhishek Singh – Full Stack Engineer transitioning into Data Engineering. Node.js, React, Azure, Databricks, PySpark." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c10;--panel:#111318;--text:#e6e7ea;--muted:#a7acb8;--primary:#6ee7b7;--accent:#8ab4f8;--chip:#1a1f2b;--border:#242836;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Noto Sans',sans-serif;background:linear-gradient(180deg,var(--bg),#0f1320 70%);color:var(--text)}
+    a{color:inherit}
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,12,16,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700}
+    .brand-dot{width:10px;height:10px;border-radius:50%;background:var(--primary);box-shadow:0 0 20px var(--primary)}
+    .menu{display:flex;gap:18px}
+    .menu a{font-size:14px;color:var(--muted);text-decoration:none}
+    .menu a:hover{color:var(--text)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#0a0f16;padding:10px 14px;border-radius:14px;font-weight:600;text-decoration:none}
+    .btn.outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+    .hero{padding:60px 0 16px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
+    .title{font-size:36px;font-weight:800;line-height:1.1;margin:0}
+    .subtitle{color:var(--muted);margin:14px 0 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .chip{background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow)}
+    .card .card-body{padding:18px}
+    .profile{display:grid;grid-template-columns:100px 1fr;gap:14px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:16px;object-fit:cover;border:1px solid var(--border);background:#0a0d14}
+    .avatar.placeholder{display:grid;place-items:center;font-size:11px;color:var(--muted)}
+    .row{display:grid;gap:20px}
+    section{padding:28px 0}
+    h2{margin:0 0 12px;font-size:22px}
+    p{margin:0 0 12px}
+    ul{margin:0;padding-left:18px}
+    .list{display:grid;gap:14px}
+    .pill{display:inline-block;margin:6px 6px 0 0;padding:8px 12px;border-radius:999px;background:var(--chip);border:1px solid var(--border);font-size:13px}
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .project h3{margin:0 0 8px;font-size:18px}
+    .project small{color:var(--muted)}
+    .project .tech{margin-top:8px}
+    .kicker{color:var(--muted);font-size:13px}
+    .footer{padding:30px 0 50px;color:var(--muted);text-align:center}
+    .contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .contact-cards a{display:flex;gap:10px;align-items:center;background:var(--panel);border:1px solid var(--border);padding:12px;border-radius:14px;text-decoration:none;color:var(--text)}
+    .note{font-size:12px;color:var(--muted);margin-top:10px}
+    .toggle{cursor:pointer;padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px}
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .contact-cards{grid-template-columns:1fr}
+      .title{font-size:30px}
+    }
+    /* Light mode */
+    body.light{--bg:#f6f7fb;--panel:#ffffff;--text:#0f1222;--muted:#556070;--primary:#0ea5e9;--accent:#0f766e;--chip:#f3f5f9;--border:#e6e8ef}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-wrap">
+      <div class="brand"><span class="brand-dot"></span>Abhishek Singh</div>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a class="btn" href="#projects">View Projects</a>
+        <button class="toggle" id="themeToggle">Toggle theme</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container grid">
+      <div>
+        <h1 class="title">Full Stack Engineer → Data Engineering</h1>
+        <p class="subtitle">7+ years building scalable web and data solutions with <b>Node.js, React, Azure, Databricks, and PySpark</b>. I bridge application development and data engineering to deliver reliable ETL, APIs, and cloud‑native systems.</p>
+        <div class="chips">
+          <span class="chip">Node.js & React</span>
+          <span class="chip">Databricks & PySpark</span>
+          <span class="chip">Azure Cloud</span>
+        </div>
+        <div style="display:flex; gap:10px; margin-top:18px">
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn outline" href="Abhishek_Singh_Resume.pdf" download>Download Resume</a>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <div class="profile">
+              <!-- Replace src with your image path (e.g., images/profile.jpg). Recommended 400x400px square. -->
+              <img class="avatar" id="avatar" src="images/profile.jpg" alt="Your profile photo" onerror="this.classList.add('placeholder');this.alt='Add your profile image at images/profile.jpg';this.src='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'#0a0d14\'/><text x=\'50%\' y=\'50%\' fill=\'#8892a6\' font-size=\'12\' text-anchor=\'middle\' dominant-baseline=\'middle\'>Add images/profile.jpg</text></svg>')" />
+              <div>
+                <h3 style="margin:0">Abhishek Singh</h3>
+                <div class="kicker">India • Open to Full Stack & Data Engineering roles</div>
+                <div style="display:grid;gap:6px;margin-top:10px;color:var(--muted);font-size:14px">
+                  <div>📧 <a href="mailto:kb.abhisheksingh@gmail.com">kb.abhisheksingh@gmail.com</a></div>
+                  <div>🔗 <a href="https://www.linkedin.com/in/abhishek-singh-122703a1/" target="_blank">LinkedIn</a> • <a href="https://github.com/yourhandle" target="_blank">GitHub</a></div>
+                  <div>🌐 abhisheksingh.in (set after domain purchase)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container row">
+        <div class="card"><div class="card-body">
+          <h2>About</h2>
+          <p>I design and deliver scalable applications and data platforms using <b>Node.js, React, Azure, Databricks, and PySpark</b>. My focus is building reliable ETL pipelines, clean APIs, and cloud‑native solutions that turn complex requirements into measurable business impact. Currently doubling down on <b>data engineering</b> while leveraging a solid full‑stack foundation.</p>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container row">
+        <div class="card"><div class="card-body">
+          <h2>Skills</h2>
+          <div>
+            <span class="pill">Node.js</span>
+            <span class="pill">Express.js</span>
+            <span class="pill">React.js</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">SQL Server</span>
+            <span class="pill">PostgreSQL</span>
+            <span class="pill">Cassandra</span>
+            <span class="pill">Azure</span>
+            <span class="pill">Databricks</span>
+            <span class="pill">PySpark</span>
+            <span class="pill">API Design</span>
+            <span class="pill">ETL / Data Pipelines</span>
+            <span class="pill">CI/CD (Azure Pipelines, Bamboo)</span>
+            <span class="pill">Angular</span>
+            <span class="pill">jQuery</span>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects">
+          <!-- 1 -->
+          <div class="card project"><div class="card-body">
+            <h3>Foot Locker – E‑commerce Platform</h3>
+            <p class="kicker">Global retailer (28 countries) powering browsing, purchasing & inventory across multiple divisions.</p>
+            <ul class="list">
+              <li>Led application support for product attributes, inventory, SKU establishment & RFID store ops</li>
+              <li>Automated pipelines with <b>PySpark</b> & <b>Azure Databricks</b></li>
+              <li>Backend services with <b>Node.js</b>, <b>SQL Server</b>, <b>Cassandra</b>; SLA compliance & CI/CD</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">SQL Server</span><span class="pill">Cassandra</span><span class="pill">PySpark</span><span class="pill">Azure</span><span class="pill">Databricks</span><span class="pill">Bamboo</span>
+            </div>
+          </div></div>
+          <!-- 2 -->
+          <div class="card project"><div class="card-body">
+            <h3>Rotation Accelerator – Internal Project Rotation</h3>
+            <p class="kicker">Rules‑based dashboard to streamline employee project changes and approvals.</p>
+            <ul class="list">
+              <li>Requirements, design, coding, reporting</li>
+              <li>Angular dashboard + Node.js APIs for rotation workflows</li>
+              <li>Implemented validation for rules/guidelines and secure approvals</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">API Integration</span>
+            </div>
+          </div></div>
+          <!-- 3 -->
+          <div class="card project"><div class="card-body">
+            <h3>E‑Sign – Digital Document Signing</h3>
+            <p class="kicker">Scalable eSignature platform with multi‑recipient signing, pre‑fillable forms & notifications.</p>
+            <ul class="list">
+              <li>Node.js/Express document workflows; secure handling</li>
+              <li>Multi‑recipient flows + event notifications</li>
+              <li>Angular signing UI</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">Angular</span><span class="pill">API Integration</span>
+            </div>
+          </div></div>
+          <!-- 4 -->
+          <div class="card project"><div class="card-body">
+            <h3>Evolve – Mortgage Industry Platform</h3>
+            <p class="kicker">Distributed, containerized modules with dynamic runtime workflows via task queues.</p>
+            <ul class="list">
+              <li>Designed, coded, tested distributed modules in Node.js</li>
+              <li>Angular UI for workflow management</li>
+              <li>Integrated distributed task queue; container‑optimized</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">Containers</span><span class="pill">Workflow Engine</span>
+            </div>
+          </div></div>
+          <!-- 5 -->
+          <div class="card project"><div class="card-body">
+            <h3>Frontier Software – iChris (HRIS)</h3>
+            <p class="kicker">Modular HR platform with secure access across on‑prem, cloud, and mobile.</p>
+            <ul class="list">
+              <li>Requirements → design → coding → testing → reporting</li>
+              <li>Modules in Node.js, AngularJS, TypeScript; API integrations</li>
+              <li>Automated tests (Protractor, Mocha, Chai, Cucumber); IIS & C#.NET integrations</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">AngularJS</span><span class="pill">TypeScript</span><span class="pill">LESS</span><span class="pill">Protractor</span><span class="pill">Mocha</span><span class="pill">Chai</span><span class="pill">Cucumber</span><span class="pill">IIS</span><span class="pill">C#.NET</span>
+            </div>
+          </div></div>
+          <!-- 6 -->
+          <div class="card project"><div class="card-body">
+            <h3>Migo TV – Offline Video Content</h3>
+            <p class="kicker">Offline video distribution in low‑connectivity regions; connects backend, shopkeepers & users.</p>
+            <ul class="list">
+              <li>Node.js/Express services; Angular UI</li>
+              <li>Sequelize models & PostgreSQL schema</li>
+              <li>3rd‑party API integrations for shopkeeper ↔ end‑user flows</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">Express.js</span><span class="pill">Angular</span><span class="pill">SequelizeJS</span><span class="pill">PostgreSQL</span>
+            </div>
+          </div></div>
+          <!-- 7 -->
+          <div class="card project"><div class="card-body">
+            <h3>Property Pro – Real Estate Valuation</h3>
+            <p class="kicker">Valuations compliant with Residential Valuation & Security Assessment Pro Forma.</p>
+            <ul class="list">
+              <li>Node.js + Angular + TypeScript modules</li>
+              <li>API integrations for valuation data & reporting</li>
+              <li>Dynamic UI with jQuery</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">jQuery</span><span class="pill">API Integration</span>
+            </div>
+          </div></div>
+          <!-- 8 -->
+          <div class="card project"><div class="card-body">
+            <h3>Invenco – Warehouse & OMS</h3>
+            <p class="kicker">Ingests orders via 3rd‑party APIs, processes in OMS (incl. mobile), pushes realtime updates.</p>
+            <ul class="list">
+              <li>Node.js + TypeScript services; Angular front‑end</li>
+              <li>3rd‑party e‑commerce API sync</li>
+              <li>Realtime status updates to merchants & customers</li>
+            </ul>
+            <div class="tech">
+              <span class="pill">Node.js</span><span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">API Integration</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certs">
+      <div class="container row">
+        <div class="card"><div class="card-body">
+          <h2>Certifications</h2>
+          <ul class="list">
+            <li>Microsoft Azure Fundamentals (AZ‑900)</li>
+            <li>Azure Data Engineer Associate (DP‑203)</li>
+            <li>Databricks Lakehouse Fundamentals</li>
+            <li>Databricks Certified Data Engineer Associate</li>
+            <li>Apache Spark Fundamentals</li>
+            <li>Advanced SQL (Coursera/HackerRank)</li>
+          </ul>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-cards">
+          <a href="mailto:kb.abhisheksingh@gmail.com">📧 Email <span style="opacity:.7">(kb.abhisheksingh@gmail.com)</span></a>
+          <a href="https://www.linkedin.com/in/abhishek-singh-122703a1/" target="_blank">🔗 LinkedIn Profile</a>
+          <a href="https://github.com/yourhandle" target="_blank">💻 GitHub</a>
+        </div>
+        <div class="note">Replace placeholders (email, GitHub, resume file, domain) before publishing.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> Abhishek Singh • Built with HTML, CSS & a sprinkle of JS</footer>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Theme toggle
+    const btn = document.getElementById('themeToggle');
+    const pref = localStorage.getItem('theme');
+    if(pref==='light'){ document.body.classList.add('light'); }
+    btn.addEventListener('click',()=>{
+      document.body.classList.toggle('light');
+      localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
